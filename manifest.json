@@ -1,0 +1,28 @@
+{
+  "name": "Custom Hypothesis",
+  "short_name": "Custom Hypothesis",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Add Hypothesis to a page with custom configuration",
+  "icons": {
+    "128": "icons/logo-128.png"
+  },
+  "homepage_url": "https://hypothes.is/",
+  "options_ui": {
+    "page": "src/options.html"
+  },
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "src/background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "38": "icons/logo-38.png"
+    }
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}
