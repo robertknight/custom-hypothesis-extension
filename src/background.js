@@ -12,6 +12,7 @@ function addClientToPage() {
     window.alert('Saved client configuration is not valid');
   }
 
+  const configStrB64 = btoa(configStr);
   const script = `
     // Remove any existing config scripts
     const existingConfigScripts = Array.from(document.querySelectorAll('.js-hypothesis-config'));
@@ -28,9 +29,7 @@ function addClientToPage() {
     // Add new config script
     const configScript = document.createElement('script');
     configScript.className = 'js-hypothesis-config';
-    // configStr must be embedded in a single-quoted string to escape quotes in
-    // the JSON data.
-    configScript.textContent = '${configStr}';
+    configScript.textContent = atob('${configStrB64}');
     configScript.type = 'application/json';
     document.head.appendChild(configScript);
 
